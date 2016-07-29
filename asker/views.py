@@ -176,7 +176,7 @@ def end(request):
 	elapsed_time = request.session['elapsed_time']
 	no_of_questions = Question.objects.all().count()
 
-	if total_score >= 7 and elapsed_time <= 50:
+	if total_score >= 7 and elapsed_time <= 75:
 		deserves_reward = True
 	else:
 		deserves_reward = False
