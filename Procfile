@@ -1,0 +1,1 @@
+web: gunicorn kudobuzzAsker.wsgi --log-file -
