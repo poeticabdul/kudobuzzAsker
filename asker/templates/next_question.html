@@ -1,53 +1,38 @@
-<html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Kudobuzz Asker - Quiz QUestions {% endblock %}
+{% block head %} 
 
-	<head>
-		<title>Next question in Kudobuzz Asker</title>
-	</head>
-
-	<body>
+{% endblock %} 
 
 
-		<h1> Next QUESTION </h1>
 
-		
+{% block main %} 
 
-			
-				{{ question.question_text}}
-
-				<form action="/asker/{{next_url}}/" method="post">
-				    {% csrf_token %}
+	<h4 class="que-no" style="padding-left: 10px;">Question {{question.slug}}</h4>
+	<div class="login-panel panel panel-default">
+		<div class="panel-heading">{{question.question_text}}</div>
+		<div class="panel-body">
+			<form role="form" action="/basic-shopify/{{next_url}}/" method="post">
+				<fieldset>
+					{% csrf_token %}
 				    {% for choice in choices %}
-				    <label class="radio"><input type="radio" name="answer" value="{{choice.is_right}}"> {{choice.choice_text}}</label><br>
+				    <div class="radio">
+					  <label>
+					    <input type="radio" name="answer" id="answer" required value="{{choice.is_right}}">
+					    {{choice.choice_text}}
+					  </label>
+					</div>
+				    <!-- <label class="radio"><input type="radio" name="answer" required value="{{choice.is_right}}"> {{choice.choice_text}}</label><br> -->
 				    {% endfor %}
-				    <input type="submit" class="btn btn-primary" value="Next">
-				</form>
+					<input type="submit" class="btn btn-primary" value="Next" style="margin-top: 15px; margin-bottom: 7px;">
+					<!-- <a href="index.html" class="btn btn-primary">Login</a> -->
+				</fieldset>
+			</form>
+		</div>
+	</div>
 
-	
+
+{% endblock %} 
 
 
-
-
-		<!-- {% if question %}
-
-			{% for question in questions%}
-				{{ question.question_text}}
-
-				<form action="/asker/" method="post">
-				    {% csrf_token %}
-				    {% for choice in choices %}
-				    <label class="radio"><input type="radio" name="answer" value="{{choice.is_right}}"> {{choice.choice_text}}</label><br>
-				    {% endfor %}
-				    <input type="submit" class="btn btn-primary" value="Next">
-				</form>
-
-			{% endfor %}
-
-		{% else %}
-
-			<p> sorry, there are no quizzes at the moment </p>
-
-		{% endif %}
- -->
-	</body>
-
-</html>

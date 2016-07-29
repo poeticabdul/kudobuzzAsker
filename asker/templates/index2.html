@@ -1,0 +1,53 @@
+<html>
+
+	<head>
+		<title>First page in Kudobuzz Asker</title>
+	</head>
+
+	<body>
+
+
+		<h1> On Kudobuzz ASKER </h1>
+
+		
+
+			
+				{{ question.question_text}}
+
+				<form action="/asker/" method="post">
+				    {% csrf_token %}
+				    {% for choice in choices %}
+				    <label class="radio"><input type="radio" name="answer" required value="{{choice.is_right}}"> {{choice.choice_text}}</label><br>
+				    {% endfor %}
+				    <input type="submit" class="btn btn-primary" value="Next">
+				</form>
+
+	
+
+
+
+
+		<!-- {% if question %}
+
+			{% for question in questions%}
+				{{ question.question_text}}
+
+				<form action="/asker/" method="post">
+				    {% csrf_token %}
+				    {% for choice in choices %}
+				    <label class="radio"><input type="radio" name="answer" value="{{choice.is_right}}"> {{choice.choice_text}}</label><br>
+				    {% endfor %}
+				    <input type="submit" class="btn btn-primary" value="Next">
+				</form>
+
+			{% endfor %}
+
+		{% else %}
+
+			<p> sorry, there are no quizzes at the moment </p>
+
+		{% endif %}
+ -->
+	</body>
+
+</html>

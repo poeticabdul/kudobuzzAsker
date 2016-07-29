@@ -1,0 +1,33 @@
+<html>
+
+	<head>
+		<title>Basic Shopify Knowledge</title>
+	</head>
+
+	<body>
+
+
+		<h1> Basic Shopify Knowledge </h1>
+
+		{{shopify_topic.topic_text}}
+		<br>
+		<br>
+		{{shopify_topic.topic_description}}
+		<br>
+		<br>
+
+		<form action="/basic-shopify/" method="post">
+		    {% csrf_token %}
+		    <input type="submit" class="btn btn-primary" value="Start QUiz">
+		</form>
+		
+		<br>
+		<br>
+
+		<a href="/"> Start again </a>
+
+				
+
+	</body>
+
+</html>

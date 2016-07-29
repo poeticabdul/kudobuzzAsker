@@ -17,6 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+	url(r'^$', 'asker.views.index', name='home'),
+	url(r'^basic-shopify/$', 'asker.views.basic_shopify', name='basic_shopify'),
+	url(r'^basic-shopify/(?P<question_id>[0-9]+)/$', 'asker.views.next_question', name='next_question'),
 	url(r'^asker/', include('asker.urls')),
     url(r'^admin/', admin.site.urls),
 ]
