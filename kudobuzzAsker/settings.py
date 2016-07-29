@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0kf!a!%wup!tgk=3pb$ye0^=*68=f0by_iqicr4p4($8#&zr_i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kudobuzz-asker.herokuapp.com']
 
 
 # Application definition
@@ -76,17 +76,21 @@ WSGI_APPLICATION = 'kudobuzzAsker.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kbasker',
-        'USER': 'kbaskeruser',
-        'PASSWORD': 'kitcat23',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'kbasker',
+#         'USER': 'kbaskeruser',
+#         'PASSWORD': 'kitcat23',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
