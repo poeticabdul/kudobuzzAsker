@@ -26,7 +26,7 @@ SECRET_KEY = '0kf!a!%wup!tgk=3pb$ye0^=*68=f0by_iqicr4p4($8#&zr_i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kudobuzz-asker.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
